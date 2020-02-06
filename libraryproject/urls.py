@@ -1,3 +1,6 @@
+from django.contrib import admin
+from django.urls import include, path
+from django.urls import path
 from libraryapp.models import *
 
 """libraryproject URL Configuration
@@ -20,4 +23,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('libraryapp.urls')),
 ]
