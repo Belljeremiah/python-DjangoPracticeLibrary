@@ -4,7 +4,7 @@ from libraryapp.models import Library
 from ..connection import Connection
 
 
-def list_libraries(request):
+def library_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
             conn.row_factory = sqlite3.Row
@@ -16,6 +16,7 @@ def list_libraries(request):
                 b.title,
                 b.address,
                 b.librarian_id,
+                b.location_id
             from libraryapp_library b
             """)
 
@@ -28,10 +29,11 @@ def list_libraries(request):
                 library.title = row['title']
                 library.address = row['address']
                 library.librarian_id = row['librarian_id']
+                library.location_id = row['location_id']
 
                 all_libraries.append(library)
 
-        template = 'libraries/list.html'
+        template = 'librariesall_libraries/list.html'
         context = {
             'all_libraries': all_libraries
         }

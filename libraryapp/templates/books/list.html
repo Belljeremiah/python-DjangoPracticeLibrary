@@ -19,3 +19,11 @@
     </ol>
   </body>
 </html>
+Look back in your views/books/list.py file and review the following two lines at the bottom.
+
+template = 'books/list.html'
+context = {
+    'all_books': all_books
+}
+
+return render(request, template, context)

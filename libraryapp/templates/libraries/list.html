@@ -6,11 +6,14 @@
     <title>Library</title>
   </head>
   <body>
-    <h1>Librarians</h1>
+    <h1>Libraries</h1>
 
     <ol>
-    {% for Library in list_libraries %}
-        <li>{{ libraries.title }} {{ libraries.address }}</li>
+    {% for libraries in list_libraries %}
+        <li>
+            Name: {{ library.title }}
+            Address: {{library.address}}
+        </li>
     {% endfor %}
     </ol>
   </body>
